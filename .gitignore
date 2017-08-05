@@ -1,0 +1,12 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/MGF Client/Library
+/MGF Client/.vs/MGF Client
+*.suo
+/MGF Client/ProjectSettings
+/MGF Client/Temp
+bin
+obj
+packages
