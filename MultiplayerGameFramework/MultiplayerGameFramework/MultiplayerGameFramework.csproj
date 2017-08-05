@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5F2593F7-1CE8-443B-B7C2-4D1DDE371324}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MultiplayerGameFramework</RootNamespace>
+    <AssemblyName>MultiplayerGameFramework</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Implementation\Client\ClientConnectionCollection.cs" />
+    <Compile Include="Implementation\Client\SubServerClientPeer.cs" />
+    <Compile Include="Implementation\Config\PeerConfig.cs" />
+    <Compile Include="Implementation\Config\PeerInfo.cs" />
+    <Compile Include="Implementation\Config\ServerConfiguration.cs" />
+    <Compile Include="Implementation\Messaging\ClientHandler.cs" />
+    <Compile Include="Implementation\Messaging\ClientHandlerList.cs" />
+    <Compile Include="Implementation\Messaging\MessageType.cs" />
+    <Compile Include="Implementation\Messaging\Event.cs" />
+    <Compile Include="Implementation\Messaging\Response.cs" />
+    <Compile Include="Implementation\Messaging\Request.cs" />
+    <Compile Include="Implementation\Messaging\ServerHandler.cs" />
+    <Compile Include="Implementation\Messaging\ServerHandlerList.cs" />
+    <Compile Include="Implementation\Server\ServerConnectionCollection.cs" />
+    <Compile Include="Interfaces\Client\IClientData.cs" />
+    <Compile Include="Interfaces\Client\IClientPeer.cs" />
+    <Compile Include="Interfaces\Client\IConnectionCollection.cs" />
+    <Compile Include="Interfaces\Config\IPeerConfig.cs" />
+    <Compile Include="Interfaces\Config\IServerType.cs" />
+    <Compile Include="Interfaces\IServerApplication.cs" />
+    <Compile Include="Interfaces\Messaging\IDefaultResponseHandler.cs" />
+    <Compile Include="Interfaces\Messaging\IDefaultRequestHandler.cs" />
+    <Compile Include="Interfaces\Messaging\IDefaultEventHandler.cs" />
+    <Compile Include="Interfaces\Messaging\IHandler.cs" />
+    <Compile Include="Interfaces\Messaging\IHandlerList.cs" />
+    <Compile Include="Interfaces\Messaging\IMessage.cs" />
+    <Compile Include="Interfaces\Server\IServerConnectionCollection.cs" />
+    <Compile Include="Interfaces\Server\IServerData.cs" />
+    <Compile Include="Interfaces\Server\IServerPeer.cs" />
+    <Compile Include="Interfaces\Support\IAfterServerRegistration.cs" />
+    <Compile Include="Interfaces\Support\IBackgroundThread.cs" />
+    <Compile Include="Interfaces\Support\IClientCodeRemover.cs" />
+    <Compile Include="Interfaces\Support\IClientConnectionHandler.cs" />
+    <Compile Include="Interfaces\Support\IPeerFactory.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
