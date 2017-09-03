@@ -2,7 +2,6 @@
 using MGF_Photon.Implementation.Server;
 using MGF_Photon.Implementation.Operation;
 using MGF_Photon.Implementation.Operation.Data;
-using MGF_Photon.Implementation.Server;
 using MultiplayerGameFramework.Implementation.Config;
 using MultiplayerGameFramework.Interfaces;
 using MultiplayerGameFramework.Interfaces.Client;

@@ -68,6 +68,10 @@ namespace MGF_Photon.Implementation.Client
 
         public void SendMessage(IMessage message)
         {
+            if(!message.Parameters.Keys.Contains(_server.SubCodeParameterCode))
+            {
+                message.Parameters.Add(_server.SubCodeParameterCode, message.SubCode);
+            }
             if(message is Event)
             {
                 SendEvent(new EventData(message.Code) { Parameters = message.Parameters }, new SendParameters());

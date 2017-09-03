@@ -13,13 +13,11 @@
     <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Unity Subset v3.5</TargetFrameworkProfile>
-    <CompilerResponseFile>
-    </CompilerResponseFile>
+    <CompilerResponseFile></CompilerResponseFile>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows:5</UnityBuildTarget>
     <UnityVersion>5.6.2f1</UnityVersion>
-    <RootNamespace>
-    </RootNamespace>
+    <RootNamespace></RootNamespace>
     <LangVersion>4</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -90,15 +88,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\ClientHandlers\TestHandler.cs" />
+    <Compile Include="Assets\ClientViews\TestView.cs" />
     <Compile Include="Assets\MGFClient\EngineState.cs" />
-    <Compile Include="Assets\MGFClient\Message\Implementation\Response.cs" />
     <Compile Include="Assets\MGFClient\Message\Implementation\Event.cs" />
+    <Compile Include="Assets\MGFClient\Message\Implementation\Response.cs" />
     <Compile Include="Assets\MGFClient\Message\Interfaces\IMessage.cs" />
     <Compile Include="Assets\MGFClient\Message\Interfaces\IMessageHandler.cs" />
     <Compile Include="Assets\MGFClient\Message\MessageType.cs" />
     <Compile Include="Assets\MGFClient\PhotonEngine.cs" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
 </Project>

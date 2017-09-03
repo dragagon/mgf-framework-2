@@ -17,7 +17,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\..\..\Photon4\Photon-OnPremise-Server-SDK_v4-0-29-11263\deploy\TestServer\bin\</OutputPath>
+    <OutputPath>..\..\..\..\Photon4\Photon-OnPremise-Server-SDK_v4-0-29-11263\deploy\TestServer\bin\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -149,6 +149,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Handlers\TestRequestEventHandler.cs" />
+    <Compile Include="Handlers\TestRequestResponseHandler.cs" />
+    <Compile Include="Modules\TestModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

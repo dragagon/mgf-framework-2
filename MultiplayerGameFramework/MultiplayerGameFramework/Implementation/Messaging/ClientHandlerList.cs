@@ -10,13 +10,13 @@ namespace MultiplayerGameFramework.Implementation.Messaging
 {
     public class ClientHandlerList : IHandlerList<IClientPeer>
     {
-        private readonly Dictionary<int, IHandler<IClientPeer>> _requestCodeHandlerList;
-        private readonly Dictionary<int, IHandler<IClientPeer>> _requestSubCodeHandlerList;
+        private readonly List<IHandler<IClientPeer>> _requestCodeHandlerList;
+        private readonly List<IHandler<IClientPeer>> _requestSubCodeHandlerList;
 
         public ClientHandlerList(IEnumerable<IHandler<IClientPeer>> handlers)
         {
-            _requestCodeHandlerList = new Dictionary<int, IHandler<IClientPeer>>();
-            _requestSubCodeHandlerList = new Dictionary<int, IHandler<IClientPeer>>();
+            _requestCodeHandlerList = new List<IHandler<IClientPeer>>();
+            _requestSubCodeHandlerList = new List<IHandler<IClientPeer>>();
 
             foreach(var handler in handlers)
             {
@@ -30,14 +30,14 @@ namespace MultiplayerGameFramework.Implementation.Messaging
 
             if((handler.Type & MessageType.Request) == MessageType.Request)
             {
-                if(handler.SubCode.HasValue && !_requestSubCodeHandlerList.ContainsKey(handler.SubCode.Value))
+                if(handler.SubCode.HasValue)
                 {
-                    _requestSubCodeHandlerList.Add(handler.SubCode.Value, handler);
+                    _requestSubCodeHandlerList.Add(handler);
                     registered = true;
                 }
-                else if(!_requestCodeHandlerList.ContainsKey(handler.Code))
+                else
                 {
-                    _requestCodeHandlerList.Add(handler.Code, handler);
+                    _requestCodeHandlerList.Add(handler);
                     registered = true;
                 }
             }
@@ -47,17 +47,28 @@ namespace MultiplayerGameFramework.Implementation.Messaging
         public bool HandleMessage(IMessage message, IClientPeer peer)
         {
             bool handled = false;
+            IEnumerable<IHandler<IClientPeer>> handlers;
             switch(message.Type)
             {
                 case MessageType.Request:
-                    if (message.SubCode.HasValue && _requestSubCodeHandlerList.ContainsKey(message.SubCode.Value))
+                    // Get all matching code and subcode - Normal message handling
+                    handlers = _requestSubCodeHandlerList.Where(h => h.Code == message.Code && h.SubCode == message.SubCode);
+                    if (handlers == null || handlers.Count() == 0)
                     {
-                        _requestSubCodeHandlerList[message.SubCode.Value].HandleMessage(message, peer);
-                        handled = true;
+                        // If no normal message handling occurs - check if there is one that handles only by code - normal forward handlers
+                        handlers = _requestCodeHandlerList.Where(h => h.Code == message.Code);
                     }
-                    else if (!message.SubCode.HasValue && !_requestCodeHandlerList.ContainsKey(message.Code))
+                    // If still no message handling occurs - default handler
+                    if (handlers == null || handlers.Count() == 0)
                     {
-                        _requestCodeHandlerList[message.Code].HandleMessage(message, peer);
+                        // No default handler for incomming client requests. Usually output error message on server.
+                        //_defaultRequestHandler.HandleMessage(message, peer);
+                    }
+                    // if the default handler was called, its because the handler list was null or empty (it should always return empty, null checks are just in case), 
+                    // otherwise we call all matching handlers
+                    foreach (var handler in handlers)
+                    {
+                        handler.HandleMessage(message, peer);
                         handled = true;
                     }
                     break;

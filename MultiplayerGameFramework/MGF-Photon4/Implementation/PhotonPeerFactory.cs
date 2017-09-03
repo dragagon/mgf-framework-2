@@ -1,7 +1,6 @@
 ﻿using ExitGames.Logging;
 using MGF_Photon.Implementation.Server;
 using MGF_Photon.Implementation.Client;
-using MGF_Photon.Implementation.Server;
 using MultiplayerGameFramework.Implementation.Client;
 using MultiplayerGameFramework.Implementation.Config;
 using MultiplayerGameFramework.Interfaces.Config;
