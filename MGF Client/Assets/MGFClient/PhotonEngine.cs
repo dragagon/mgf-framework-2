@@ -171,6 +171,6 @@ public class PhotonEngine : MonoBehaviour, IPhotonPeerListener {
 
     public void SendRequest(OperationRequest request)
     {
-        Peer.OpCustom(request, true, 0, UseEncryption);
+        State.SendRequest(request, true, 0, UseEncryption);
     }
 }

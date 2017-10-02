@@ -149,6 +149,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BackgroundThreads\TestBackgroundThread.cs" />
     <Compile Include="Handlers\TestRequestEventHandler.cs" />
     <Compile Include="Handlers\TestRequestResponseHandler.cs" />
     <Compile Include="Modules\TestModule.cs" />

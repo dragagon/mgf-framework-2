@@ -113,7 +113,7 @@ namespace MGF_Photon.Implementation.Handler
                     }
                     if (registerData.TcpPort.HasValue)
                     {
-                        serverData.UdpAddress = registerData.GameServerAddress + ":" + registerData.TcpPort;
+                        serverData.TcpAddress = registerData.GameServerAddress + ":" + registerData.TcpPort;
                     }
 
                     // setting server id

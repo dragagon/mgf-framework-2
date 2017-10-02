@@ -1,10 +1,6 @@
 ﻿using Autofac;
+using Servers.BackgroundThreads;
 using Servers.Handlers;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Servers.Modules
 {
@@ -16,6 +12,7 @@ namespace Servers.Modules
             // Normal builder.RegisterType calls
             builder.RegisterType<TestRequestResponseHandler>().AsImplementedInterfaces();
             builder.RegisterType<TestRequestEventHandler>().AsImplementedInterfaces();
+            builder.RegisterType<TestBackgroundThread>().AsImplementedInterfaces();
         }
     }
 }
