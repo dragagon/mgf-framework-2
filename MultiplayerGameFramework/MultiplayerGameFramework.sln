@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+# Visual Studio 15
+VisualStudioVersion = 15.0.26430.15
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiplayerGameFramework", "MultiplayerGameFramework\MultiplayerGameFramework.csproj", "{5F2593F7-1CE8-443B-B7C2-4D1DDE371324}"
 EndProject
@@ -10,6 +10,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MGF-Photon4", "MGF-Photon4\MGF-Photon4.csproj", "{E74FD041-E93B-4B39-898A-3DAE07C205EB}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Servers", "Servers\Servers.csproj", "{B1A12EDB-96EC-4DFA-8A70-E500258C081C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MGF.Domain", "MGF.Domain\MGF.Domain.csproj", "{59052CCB-7C5F-4C80-9F40-E09D1B76D55F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{B1A12EDB-96EC-4DFA-8A70-E500258C081C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B1A12EDB-96EC-4DFA-8A70-E500258C081C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B1A12EDB-96EC-4DFA-8A70-E500258C081C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{59052CCB-7C5F-4C80-9F40-E09D1B76D55F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{59052CCB-7C5F-4C80-9F40-E09D1B76D55F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{59052CCB-7C5F-4C80-9F40-E09D1B76D55F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{59052CCB-7C5F-4C80-9F40-E09D1B76D55F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
