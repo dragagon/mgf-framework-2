@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,6 +15,10 @@ namespace MGF.Domain
 
         private int value;
 
+        private int characterId;
+        private Character character;
+
+        private static Stat nullValue = new Stat();
         #endregion
 
         #region Properties
@@ -68,6 +73,23 @@ namespace MGF.Domain
                 }
             }
         }
+
+        public int CharacterId
+        {
+            get { return characterId; }
+            set
+            {
+                if(value <= 0)
+                {
+                    throw new ArgumentOutOfRangeException(nameof(CharacterId));
+                }
+                if(this.characterId != value)
+                {
+                    this.characterId = value;
+                    PropertyHasChanged(nameof(CharacterId));
+                }
+            }
+        }
         #endregion
 
         #region Constructors
@@ -86,6 +108,40 @@ namespace MGF.Domain
         #region Methods
 
         // Business logic goes here
+        public override bool Equals(object obj)
+        {
+            if (null == obj)
+            {
+                return false;
+            }
+
+            Stat other = obj as Stat;
+            if (null == other)
+            {
+                return false;
+            }
+
+            // Get the hash code and make sure they are equal, but also any other important fields.
+            return this.GetHashCode().Equals(other.GetHashCode());
+            // return this.GetHashCode().Equals(other.GetHashCode()) && this.Value.Equals(other.Value);
+
+        }
+
+        public override int GetHashCode()
+        {
+            return this.ToString().GetHashCode();
+        }
+
+        public override string ToString()
+        {
+            return String.Format(CultureInfo.CurrentCulture, "{0}: {1} - {3} ({2})",
+                this.GetType(), name, id, value);
+        }
+
+        public static Stat NullValue
+        {
+            get { return nullValue; }
+        }
         #endregion
 
     }

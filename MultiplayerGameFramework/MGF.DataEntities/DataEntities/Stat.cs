@@ -11,6 +11,9 @@ namespace MGF.DataEntities
         public int StatId { get; set; }
         public String Name { get; set; }
 
+        public int CharacterId { get; set; }
+        public Character Character { get; set; }
+
         public int Value { get; set; }
     }
 }

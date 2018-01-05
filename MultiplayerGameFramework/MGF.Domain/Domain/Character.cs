@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,6 +17,8 @@ namespace MGF.Domain
         private string name;
 
         private List<Stat> stats;
+
+        private static Character nullValue = new Character();
         #endregion
 
         #region Properties
@@ -86,15 +89,51 @@ namespace MGF.Domain
             // protection from null object reference exceptions
             if(null == stats)
             {
-                stats = IsNew || 0 == id
+                stats = (IsNew || 0 == id)
                     ? new List<Stat>()
-                    : CharacterMapper.LoadStats(this);
+                    : CharacterMapper.LoadStats(this).ToList();
             }
         }
 
         // Add to inventory
         // Ensure can craft
         // etc etc
+
+        public override bool Equals(object obj)
+        {
+            if(null == obj)
+            {
+                return false;
+            }
+
+            Character other = obj as Character;
+            if(null == other)
+            {
+                return false;
+            }
+
+            // Get the hash code and make sure they are equal, but also any other important fields.
+            return this.GetHashCode().Equals(other.GetHashCode()) &&
+                   this.Stats.SequenceEqual(other.Stats);
+            // return this.GetHashCode().Equals(other.GetHashCode()) && this.Value.Equals(other.Value);
+
+        }
+
+        public override int GetHashCode()
+        {
+            return this.ToString().GetHashCode();
+        }
+
+        public override string ToString()
+        {
+            return String.Format(CultureInfo.CurrentCulture, "{0}: {1} ({2})",
+                this.GetType(), name, id);
+        }
+
+        public static Character NullValue
+        {
+            get { return nullValue; }
+        }
         #endregion
     }
 }
