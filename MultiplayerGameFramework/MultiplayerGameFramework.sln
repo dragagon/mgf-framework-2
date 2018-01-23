@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MGF.Domain", "MGF.Domain\MG
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MGF.DataEntities", "MGF.DataEntities\MGF.DataEntities.csproj", "{6AA2DB8C-CAEC-4E11-9059-035B3B349B71}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameCommon", "GameCommon\GameCommon.csproj", "{88AA72C0-BAAC-403C-8EC2-501735FF55E7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -69,6 +71,14 @@ Global
 		{6AA2DB8C-CAEC-4E11-9059-035B3B349B71}.MySQLRelease|Any CPU.Build.0 = MySQLRelease|Any CPU
 		{6AA2DB8C-CAEC-4E11-9059-035B3B349B71}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6AA2DB8C-CAEC-4E11-9059-035B3B349B71}.Release|Any CPU.Build.0 = Release|Any CPU
+		{88AA72C0-BAAC-403C-8EC2-501735FF55E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{88AA72C0-BAAC-403C-8EC2-501735FF55E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{88AA72C0-BAAC-403C-8EC2-501735FF55E7}.MySQLDebug|Any CPU.ActiveCfg = Debug|Any CPU
+		{88AA72C0-BAAC-403C-8EC2-501735FF55E7}.MySQLDebug|Any CPU.Build.0 = Debug|Any CPU
+		{88AA72C0-BAAC-403C-8EC2-501735FF55E7}.MySQLRelease|Any CPU.ActiveCfg = Release|Any CPU
+		{88AA72C0-BAAC-403C-8EC2-501735FF55E7}.MySQLRelease|Any CPU.Build.0 = Release|Any CPU
+		{88AA72C0-BAAC-403C-8EC2-501735FF55E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{88AA72C0-BAAC-403C-8EC2-501735FF55E7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

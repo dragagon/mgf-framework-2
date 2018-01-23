@@ -39,8 +39,9 @@ namespace MGF_Photon
 
         protected override void Setup()
         {
-            LogManager.SetLoggerFactory(Log4NetLoggerFactory.Instance);
             Log = LogManager.GetCurrentClassLogger();
+            LogManager.SetLoggerFactory(Log4NetLoggerFactory.Instance);
+
             GlobalContext.Properties["LogFileName"] = ApplicationName;
             XmlConfigurator.ConfigureAndWatch(new FileInfo(Path.Combine(BinaryPath, "log4net.config")));
 
