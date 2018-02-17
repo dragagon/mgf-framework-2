@@ -51,6 +51,7 @@
     <Compile Include="MessageSerializerService.cs" />
     <Compile Include="MessageSubCode.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReturnCode.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Servers</RootNamespace>
     <AssemblyName>Servers</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
   </PropertyGroup>
@@ -171,12 +171,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BackgroundThreads\TestBackgroundThread.cs" />
+    <Compile Include="Config\ServerType.cs" />
     <Compile Include="Handlers\TestRequestEventHandler.cs" />
     <Compile Include="Handlers\TestRequestResponseHandler.cs" />
+    <Compile Include="Modules\LoginModule.cs" />
     <Compile Include="Modules\TestModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Support\ClientCodeRemover.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\GameCommon\GameCommon.csproj">
+      <Project>{88aa72c0-baac-403c-8ec2-501735ff55e7}</Project>
+      <Name>GameCommon</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MGF-Photon4\MGF-Photon4.csproj">
       <Project>{e74fd041-e93b-4b39-898a-3dae07c205eb}</Project>
       <Name>MGF-Photon4</Name>
@@ -191,9 +198,13 @@
     <None Include="log4net.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Include="LoginServer.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </None>
     <None Include="packages.config" />
     <None Include="TestServer.config">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>

@@ -2,7 +2,7 @@
 
 namespace MGF_Photon.Implementation.Operation.Data
 {
-    internal class RegisterSubServerData
+    public class RegisterSubServerData
     {
         public RegisterSubServerData()
         {

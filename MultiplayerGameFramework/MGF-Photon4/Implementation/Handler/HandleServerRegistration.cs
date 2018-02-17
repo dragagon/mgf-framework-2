@@ -16,6 +16,8 @@ using System.Xml.Serialization;
 using MGF_Photon.Implementation.Operation.Data;
 using System.IO;
 using MGF_Photon.Implementation.Data;
+using System.Diagnostics;
+using MultiplayerGameFramework.Implementation.Config;
 
 namespace MGF_Photon.Implementation.Handler
 {
@@ -24,11 +26,13 @@ namespace MGF_Photon.Implementation.Handler
 
         private readonly IServerType _serverType;
         public ILogger Log { get; set; }
+        private ServerConfiguration _serverConfiguration;
 
-        public HandleServerRegistration(ILogger log, IServerType serverType)
+        public HandleServerRegistration(ILogger log, IServerType serverType, ServerConfiguration serverConfiguration)
         {
             Log = log;
             _serverType = serverType;
+            _serverConfiguration = serverConfiguration;
         }
 
         public override MessageType Type
@@ -125,7 +129,7 @@ namespace MGF_Photon.Implementation.Handler
                     // setting application name = to the server name
                     serverData.ApplicationName = registerData.ServerName;
 
-                    operationResponse = new OperationResponse(message.Code);
+                    operationResponse = new OperationResponse(message.Code, new Dictionary<byte, object>() { {_serverConfiguration.SubCodeParameterCode, 0 } });
 
                     serverPeer.Registered = true;
                 }

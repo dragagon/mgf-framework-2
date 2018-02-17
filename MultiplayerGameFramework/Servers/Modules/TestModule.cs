@@ -1,6 +1,8 @@
 ﻿using Autofac;
 using Servers.BackgroundThreads;
+using Servers.Config;
 using Servers.Handlers;
+using Servers.Support;
 
 namespace Servers.Modules
 {
@@ -13,6 +15,8 @@ namespace Servers.Modules
             builder.RegisterType<TestRequestResponseHandler>().AsImplementedInterfaces();
             builder.RegisterType<TestRequestEventHandler>().AsImplementedInterfaces();
             builder.RegisterType<TestBackgroundThread>().AsImplementedInterfaces();
+            builder.RegisterType<ClientCodeRemover>().AsImplementedInterfaces();
+            builder.RegisterType<ServerType>().AsImplementedInterfaces();
         }
     }
 }

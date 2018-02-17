@@ -11,7 +11,7 @@ namespace GameCommon
 {
     public class MessageSerializerService
     {
-        public object SerializeObjectOfType<T>(T objectToSerialize) where T : class
+        public static object SerializeObjectOfType<T>(T objectToSerialize) where T : class
         {
             object returnValue = null;
 #if DEBUG
@@ -22,7 +22,7 @@ namespace GameCommon
             return returnValue;
         }
 
-        public T DeserializeObjectOfType<T>(object objectToDeserialize) where T : class
+        public static T DeserializeObjectOfType<T>(object objectToDeserialize) where T : class
         {
             T returnValue = null;
 #if DEBUG
@@ -34,19 +34,19 @@ namespace GameCommon
         }
 
         #region Json
-        public object SerializeJson<T>(T objectToSerialize) where T : class
+        protected static object SerializeJson<T>(T objectToSerialize) where T : class
         {
             return JsonConvert.SerializeObject(objectToSerialize);
         }
 
-        public T DeserializeJson<T>(object objectToDeserialize) where T : class
+        protected static T DeserializeJson<T>(object objectToDeserialize) where T : class
         {
             return JsonConvert.DeserializeObject<T>((string)objectToDeserialize);
         }
         #endregion
 
         #region Bson
-        public object SerializeBson<T>(T objectToSerialize) where T : class
+        protected static object SerializeBson<T>(T objectToSerialize) where T : class
         {
             MemoryStream ms = new MemoryStream();
             using (BsonDataWriter writer = new BsonDataWriter(ms))
@@ -58,7 +58,7 @@ namespace GameCommon
             return Convert.ToBase64String(ms.ToArray());
         }
 
-        public T DeserializeBson<T>(object objectToDeserialize) where T : class
+        protected static T DeserializeBson<T>(object objectToDeserialize) where T : class
         {
             byte[] data = Convert.FromBase64String((string)objectToDeserialize);
 

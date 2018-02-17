@@ -6,9 +6,12 @@ using System.Threading.Tasks;
 
 namespace GameCommon
 {
-    public enum MessageParameterCode : byte // byte
+    public enum ReturnCode : short
     {
-        SubCodeParameterCode = 0, // Match the same value in the config.
-        PeerId,
+        OperationDenied = -3,
+        OperationInvalid = -2,
+        InternalServerError = -1,
+
+        OK = 0
     }
 }

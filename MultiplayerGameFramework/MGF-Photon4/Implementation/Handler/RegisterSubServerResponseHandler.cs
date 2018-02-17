@@ -42,7 +42,7 @@ namespace MGF_Photon.Implementation.Handler
         {
             get
             {
-                return null;
+                return 0;
             }
         }
 
