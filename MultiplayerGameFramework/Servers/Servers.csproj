@@ -172,6 +172,7 @@
   <ItemGroup>
     <Compile Include="BackgroundThreads\TestBackgroundThread.cs" />
     <Compile Include="Config\ServerType.cs" />
+    <Compile Include="Handlers\Login\ClientLoginForwardingRequestHandler.cs" />
     <Compile Include="Handlers\TestRequestEventHandler.cs" />
     <Compile Include="Handlers\TestRequestResponseHandler.cs" />
     <Compile Include="Modules\LoginModule.cs" />

@@ -2,6 +2,7 @@
 using Servers.BackgroundThreads;
 using Servers.Config;
 using Servers.Handlers;
+using Servers.Handlers.Login;
 using Servers.Support;
 
 namespace Servers.Modules
@@ -17,6 +18,7 @@ namespace Servers.Modules
             builder.RegisterType<TestBackgroundThread>().AsImplementedInterfaces();
             builder.RegisterType<ClientCodeRemover>().AsImplementedInterfaces();
             builder.RegisterType<ServerType>().AsImplementedInterfaces();
+            builder.RegisterType<ClientLoginForwardingRequestHandler>().AsImplementedInterfaces();
         }
     }
 }
