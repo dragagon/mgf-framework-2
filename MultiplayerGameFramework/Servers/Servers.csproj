@@ -170,11 +170,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AuthorizationServices\AsyncAuthorizationService.cs" />
+    <Compile Include="AuthorizationServices\UserSaltedPassAuthorizationService.cs" />
+    <Compile Include="AuthorizationServices\UserPassAuthorizationService.cs" />
     <Compile Include="BackgroundThreads\TestBackgroundThread.cs" />
     <Compile Include="Config\ServerType.cs" />
+    <Compile Include="Data\Client\CharacterData.cs" />
     <Compile Include="Handlers\Login\ClientLoginForwardingRequestHandler.cs" />
+    <Compile Include="Handlers\Login\LoginAuthenticationHandler.cs" />
     <Compile Include="Handlers\TestRequestEventHandler.cs" />
     <Compile Include="Handlers\TestRequestResponseHandler.cs" />
+    <Compile Include="Interfaces\IAuthorizationService.cs" />
     <Compile Include="Modules\LoginModule.cs" />
     <Compile Include="Modules\TestModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -188,6 +194,10 @@
     <ProjectReference Include="..\MGF-Photon4\MGF-Photon4.csproj">
       <Project>{e74fd041-e93b-4b39-898a-3dae07c205eb}</Project>
       <Name>MGF-Photon4</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MGF.Domain\MGF.Domain.csproj">
+      <Project>{59052ccb-7c5f-4c80-9f40-e09d1b76d55f}</Project>
+      <Name>MGF.Domain</Name>
     </ProjectReference>
     <ProjectReference Include="..\MultiplayerGameFramework\MultiplayerGameFramework.csproj">
       <Project>{5f2593f7-1ce8-443b-b7c2-4d1dde371324}</Project>

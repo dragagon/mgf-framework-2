@@ -15,7 +15,7 @@ public class TestView : MonoBehaviour {
 
     public void SendEventRequest()
     {
-        OperationRequest request = new OperationRequest() { OperationCode = (byte)MessageOperationCode.Login, Parameters = new Dictionary<byte, object>() { { (byte)PhotonEngine.instance.SubCodeParameterCode, 2 } } };
+        OperationRequest request = new OperationRequest() { OperationCode = (byte)MessageOperationCode.Login, Parameters = new Dictionary<byte, object>() { { (byte)PhotonEngine.instance.SubCodeParameterCode, MessageSubCode.LoginUserPass } } };
         Debug.Log("Sending Request for Event");
         PhotonEngine.instance.SendRequest(request);
     }

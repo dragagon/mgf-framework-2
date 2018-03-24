@@ -13,8 +13,8 @@ namespace Servers.Modules
         {
             base.Load(builder);
             // Normal builder.RegisterType calls
-            builder.RegisterType<TestRequestResponseHandler>().AsImplementedInterfaces();
-            builder.RegisterType<TestRequestEventHandler>().AsImplementedInterfaces();
+            //builder.RegisterType<TestRequestResponseHandler>().AsImplementedInterfaces();
+            //builder.RegisterType<TestRequestEventHandler>().AsImplementedInterfaces();
             builder.RegisterType<TestBackgroundThread>().AsImplementedInterfaces();
             builder.RegisterType<ClientCodeRemover>().AsImplementedInterfaces();
             builder.RegisterType<ServerType>().AsImplementedInterfaces();

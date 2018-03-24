@@ -80,6 +80,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataEntities\User.cs" />
     <Compile Include="DataEntities\Character.cs" />
     <Compile Include="DataEntities\Stat.cs" />
     <Compile Include="MGFContext.cs" />

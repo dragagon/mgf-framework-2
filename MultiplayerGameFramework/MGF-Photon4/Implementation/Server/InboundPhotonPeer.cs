@@ -42,7 +42,7 @@ namespace MGF_Photon.Implementation.Server
 
         protected override void OnOperationResponse(OperationResponse operationResponse, SendParameters sendParameters)
         {
-            _serverPeer.SendOperationResponse(operationResponse, sendParameters);
+            _serverPeer.OnOperationResponse(operationResponse, sendParameters);
         }
     }
 }

@@ -68,10 +68,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Domain\User.cs" />
     <Compile Include="Domain\Character.cs" />
     <Compile Include="Domain\DomainBase.cs" />
     <Compile Include="Domain\IProcessDirty.cs" />
     <Compile Include="Domain\Stat.cs" />
+    <Compile Include="Mappers\UserMapper.cs" />
     <Compile Include="Mappers\CharacterMapper.cs" />
     <Compile Include="Mappers\MapperBase.cs" />
     <Compile Include="Mappers\StatMapper.cs" />
