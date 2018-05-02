@@ -11,5 +11,6 @@ namespace Servers.Interfaces
     public interface IAuthorizationService
     {
         ReturnCode IsAuthorized(out User user, params string[] authorizationParameters);
+        ReturnCode CreateAccount(params string[] authorizationParameters);
     }
 }

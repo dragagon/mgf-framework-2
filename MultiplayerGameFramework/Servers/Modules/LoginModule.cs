@@ -1,5 +1,6 @@
 ﻿using Autofac;
 using Servers.AuthorizationServices;
+using Servers.Data.Client;
 using Servers.Handlers.Login;
 using System;
 using System.Collections.Generic;
@@ -16,7 +17,9 @@ namespace Servers.Modules
             base.Load(builder);
             // Normal builder.RegisterType calls
             builder.RegisterType<LoginAuthenticationHandler>().AsImplementedInterfaces();
-            builder.RegisterType<UserPassAuthorizationService>().AsImplementedInterfaces();
+            builder.RegisterType<LoginAccountCreationHandler>().AsImplementedInterfaces();
+            builder.RegisterType<CharacterData>().AsImplementedInterfaces();
+            builder.RegisterType<UserSaltedPassAuthorizationService>().AsImplementedInterfaces();
         }
 
     }

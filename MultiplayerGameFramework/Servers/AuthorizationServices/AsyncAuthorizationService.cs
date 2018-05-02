@@ -41,6 +41,11 @@ namespace Servers.AuthorizationServices
             return returnCode;
         }
 
+        public ReturnCode CreateAccount(params string[] authorizationParameters)
+        {
+            return ReturnCode.InternalServerError;
+        }
+
         private async Task<bool> AsyncIsAuthorized(string username, string password)
         {
             // Create a task to actually run in a separate thread in order to do OAuth authorization

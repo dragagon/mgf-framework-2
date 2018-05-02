@@ -15,6 +15,7 @@ namespace MGF
 
         public MGFContext() : base("name=MySqlDbConnectionString")
         {
+            Database.SetInitializer<MGFContext>(new DropCreateDatabaseIfModelChanges<MGFContext>());
         }
 #else
     public class MGFContext : DbContext

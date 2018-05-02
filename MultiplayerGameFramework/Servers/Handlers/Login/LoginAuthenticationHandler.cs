@@ -56,6 +56,7 @@ namespace Servers.Handlers.Login
 
                 if (returnCode == ReturnCode.OK)
                 {
+                    Log.DebugFormat("Found User and good password");
                     // Need to add this login to the list of clients connected complete with the user id for other login purposes.
                     var clientpeer = PeerFactory.CreatePeer<IClientPeer>(new PeerConfig());
                     clientpeer.PeerId = new Guid((byte[])message.Parameters[(byte)MessageParameterCode.PeerId]);
@@ -65,6 +66,7 @@ namespace Servers.Handlers.Login
 
                     // Add our user id to the client peer for when we do character selection/etc
                     clientpeer.ClientData<CharacterData>().UserId = user.Id;
+                    Log.DebugFormat("Found User ID - {0}", user.Id);
 
                     // We know it's OK. send the user ID back to proxy server, to send to the client.
                     response = new Response(Code, SubCode, new Dictionary<byte, object>() { { (byte)MessageParameterCode.SubCodeParameterCode, SubCode }, { (byte)MessageParameterCode.PeerId, message.Parameters[(byte)MessageParameterCode.PeerId] }, { (byte)MessageParameterCode.UserId, user.Id } }, "", (short)returnCode);
@@ -72,6 +74,7 @@ namespace Servers.Handlers.Login
                 }
                 else
                 {
+                    Log.DebugFormat("Found user, bad password");
                     // UserPass is not good.
                     response = new Response(Code, SubCode, new Dictionary<byte, object>() { { (byte)MessageParameterCode.SubCodeParameterCode, SubCode }, { (byte)MessageParameterCode.PeerId, message.Parameters[(byte)MessageParameterCode.PeerId] } }, "Invalid Username or Password", (short)returnCode);
                     peer.SendMessage(response);
