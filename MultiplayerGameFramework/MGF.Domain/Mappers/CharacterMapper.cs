@@ -87,6 +87,28 @@ namespace MGF.Mappers
             return domainObject;
         }
 
+        public IList<Character> LoadByUserId(int userId)
+        {
+            using (MGFContext entities = new MGFContext())
+            {
+                return entities.Characters
+                    // Do not cache the entities in EF
+                    .AsNoTracking()
+                    // Order the entities by ID
+                    .OrderBy(characterEntity => characterEntity.Id)
+                    // Find all characters that match the provided userId
+                    .Where(characterEntity => characterEntity.UserId == userId)
+                    // Execute the query and return a list
+                    .ToList()
+                    // Using the list of entities, create new DomainBase Characters
+                    .Select(characterEntity => new Character(
+                        characterEntity.Id,
+                        characterEntity.Name))
+                    // return a List<Character> of characters
+                    .ToList();
+            }
+        }
+
         // One way mapping of all data in the domain object to the entity for adding/updating
         protected override void Map(Character domainObject, object entity)
         {

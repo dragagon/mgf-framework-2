@@ -1,19 +1,16 @@
-﻿using MultiplayerGameFramework.Interfaces.Client;
-using MultiplayerGameFramework.Interfaces.Messaging;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using MultiplayerGameFramework.Implementation.Messaging;
+﻿using ExitGames.Logging;
 using GameCommon;
-using MultiplayerGameFramework.Interfaces.Support;
-using ExitGames.Logging;
-using MultiplayerGameFramework.Interfaces.Server;
+using MultiplayerGameFramework.Implementation.Messaging;
+using MultiplayerGameFramework.Interfaces.Client;
 using MultiplayerGameFramework.Interfaces.Config;
+using MultiplayerGameFramework.Interfaces.Messaging;
+using MultiplayerGameFramework.Interfaces.Server;
+using MultiplayerGameFramework.Interfaces.Support;
 using Servers.Config;
+using Servers.Data.Client;
+using System.Linq;
 
-namespace Servers.Handlers.Login
+namespace Servers.Handlers.Proxy
 {
     public class ClientLoginForwardingRequestHandler : IHandler<IClientPeer>
     {
@@ -64,6 +61,7 @@ namespace Servers.Handlers.Login
         {
             // ensure the actual peer id of this client is sent foward.
             message.Parameters.Add((byte)MessageParameterCode.PeerId, peer.PeerId.ToByteArray());
+            message.Parameters.Add((byte)MessageParameterCode.UserId, peer.ClientData<CharacterData>().UserId);
         }
     }
 }

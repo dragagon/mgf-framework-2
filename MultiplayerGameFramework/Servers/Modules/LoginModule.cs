@@ -20,6 +20,7 @@ namespace Servers.Modules
             builder.RegisterType<LoginAccountCreationHandler>().AsImplementedInterfaces();
             builder.RegisterType<CharacterData>().AsImplementedInterfaces();
             builder.RegisterType<UserSaltedPassAuthorizationService>().AsImplementedInterfaces();
+            builder.RegisterType<LoginCharacterListCharactersHandler>().AsImplementedInterfaces();
         }
 
     }

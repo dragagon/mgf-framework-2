@@ -10,6 +10,7 @@ namespace GameCommon
     {
         // Start with 1, not 0.
         LoginUserPass = 1,
-        LoginNewAccount
+        LoginNewAccount,
+        CharacterList,
     }
 }

@@ -13,5 +13,6 @@ namespace GameCommon
         LoginName,
         Password,
         UserId,
+        Object,
     }
 }

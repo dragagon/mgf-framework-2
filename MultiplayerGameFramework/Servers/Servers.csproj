@@ -176,9 +176,11 @@
     <Compile Include="BackgroundThreads\TestBackgroundThread.cs" />
     <Compile Include="Config\ServerType.cs" />
     <Compile Include="Data\Client\CharacterData.cs" />
-    <Compile Include="Handlers\Login\ClientLoginForwardingRequestHandler.cs" />
+    <Compile Include="Handlers\Proxy\ClientLoginForwardingRequestHandler.cs" />
     <Compile Include="Handlers\Login\LoginAccountCreationHandler.cs" />
     <Compile Include="Handlers\Login\LoginAuthenticationHandler.cs" />
+    <Compile Include="Handlers\Login\LoginCharacterListCharactersHandler.cs" />
+    <Compile Include="Handlers\Proxy\LoginAuthenticationResponseHandler.cs" />
     <Compile Include="Handlers\TestRequestEventHandler.cs" />
     <Compile Include="Handlers\TestRequestResponseHandler.cs" />
     <Compile Include="Interfaces\IAuthorizationService.cs" />

@@ -52,6 +52,7 @@
     <Compile Include="MessageSubCode.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ReturnCode.cs" />
+    <Compile Include="SerializedObjects\Character.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

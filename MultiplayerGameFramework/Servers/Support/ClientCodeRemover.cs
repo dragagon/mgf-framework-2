@@ -13,8 +13,10 @@ namespace Servers.Support
     {
         public void RemoveCodes(IMessage message)
         {
-            // Do not remove any codes yet, nothing to remove.
+            // Make sure they aren't spoofing the Peer Id
             message.Parameters.Remove((byte)MessageParameterCode.PeerId);
+            // Make sure they aren't spoofing the user id
+            message.Parameters.Remove((byte)MessageParameterCode.UserId);
         }
     }
 }
