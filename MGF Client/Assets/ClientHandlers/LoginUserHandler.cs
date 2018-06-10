@@ -1,37 +1,24 @@
 ﻿using GameCommon;
 using System;
+using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 namespace Assets.ClientHandlers
 {
-    public class LoginUserHandler : IMessageHandler
+    public class LoginUserHandler : GameMessageHandler
     {
-        public MessageType Type
+        protected override void OnHandleMessage(Dictionary<byte, object> parameters, string debugMessage, int returnCode)
         {
-            get
-            {
-                return MessageType.Response;
-            }
-        }
-
-        public byte Code => (byte)MessageOperationCode.Login;
-
-        public int? SubCode => (int?)MessageSubCode.LoginUserPass;
-
-        public bool HandleMessage(IMessage message)
-        {
-            var response = message as Response;
-            if(response.ReturnCode == (short)ReturnCode.OK)
+            if(returnCode == (short)ReturnCode.OK)
             {
                 // Successful Login
                 SceneManager.LoadScene("CharacterSelect");
             }
             else
             {
-                // Unsuccessful
-                // ShowError(response.DebugMessage);
+                Debug.LogFormat("{0} - {1}", this.name, debugMessage);
             }
-            return true;
         }
     }
 }

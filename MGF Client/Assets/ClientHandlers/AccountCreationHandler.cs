@@ -1,27 +1,15 @@
 ﻿using GameCommon;
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Assets.ClientHandlers
 {
-    public class AccountCreationHandler : IMessageHandler
+    public class AccountCreationHandler : GameMessageHandler
     {
-        public MessageType Type
+        protected override void OnHandleMessage(Dictionary<byte, object> parameters, string debugMessage, int returnCode)
         {
-            get
-            {
-                return MessageType.Response;
-            }
-        }
-
-        public byte Code => (byte)MessageOperationCode.Login;
-
-        public int? SubCode => (int?)MessageSubCode.LoginNewAccount;
-
-        public bool HandleMessage(IMessage message)
-        {
-            var response = message as Response;
-            if(response.ReturnCode == (short)ReturnCode.OK)
+            if (returnCode == (short)ReturnCode.OK)
             {
                 // Show the login screen since it was successful
                 Debug.LogFormat("Account Created Successfully");
@@ -30,9 +18,9 @@ namespace Assets.ClientHandlers
             {
                 // Show the error dialog
                 // ShowError(response.DebugMessage);
-                Debug.LogFormat("{0}", response.DebugMessage);
+                Debug.LogFormat("{0}", debugMessage);
             }
-            return true;
+
         }
     }
 }
