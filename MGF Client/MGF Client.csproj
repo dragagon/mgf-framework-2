@@ -280,11 +280,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\CharacterSlot.cs" />
+    <Compile Include="Assets\CharacterSlotController.cs" />
     <Compile Include="Assets\ClientHandlers\AccountCreationHandler.cs" />
     <Compile Include="Assets\ClientHandlers\GameMessageHandler.cs" />
     <Compile Include="Assets\ClientHandlers\ListCharacterHandler.cs" />
     <Compile Include="Assets\ClientHandlers\LoginUserHandler.cs" />
     <Compile Include="Assets\ClientHandlers\TestHandler.cs" />
+    <Compile Include="Assets\ClientViews\CharacterCreateView.cs" />
     <Compile Include="Assets\ClientViews\CharacterSelectView.cs" />
     <Compile Include="Assets\ClientViews\TestView.cs" />
     <Compile Include="Assets\MGFClient\EngineState.cs" />

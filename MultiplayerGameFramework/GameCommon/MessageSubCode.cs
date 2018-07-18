@@ -12,5 +12,6 @@ namespace GameCommon
         LoginUserPass = 1,
         LoginNewAccount,
         CharacterList,
+        SelectCharacter,
     }
 }

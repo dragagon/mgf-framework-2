@@ -10,6 +10,8 @@ namespace Assets.ClientHandlers
 {
     public class ListCharacterHandler : GameMessageHandler
     {
+        public CharacterSlotController controller;
+
         protected override void OnHandleMessage(Dictionary<byte, object> parameters, string debugMessage, int returnCode)
         {
             if (returnCode == (short)ReturnCode.OK)
