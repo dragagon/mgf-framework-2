@@ -283,6 +283,7 @@
     <Compile Include="Assets\CharacterSlot.cs" />
     <Compile Include="Assets\CharacterSlotController.cs" />
     <Compile Include="Assets\ClientHandlers\AccountCreationHandler.cs" />
+    <Compile Include="Assets\ClientHandlers\CharacterCreateResponseHandler.cs" />
     <Compile Include="Assets\ClientHandlers\GameMessageHandler.cs" />
     <Compile Include="Assets\ClientHandlers\ListCharacterHandler.cs" />
     <Compile Include="Assets\ClientHandlers\LoginUserHandler.cs" />

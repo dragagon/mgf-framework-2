@@ -14,5 +14,7 @@ namespace GameCommon
         Password,
         UserId,
         Object,
+        CharacterName,
+        CharacterClass,
     }
 }

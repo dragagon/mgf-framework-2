@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Reflection;
 using System.Linq;
+using GameCommon;
 
 public class PhotonEngine : MonoBehaviour, IPhotonPeerListener {
 
@@ -178,5 +179,24 @@ public class PhotonEngine : MonoBehaviour, IPhotonPeerListener {
     public void SendRequest(OperationRequest request)
     {
         State.SendRequest(request, true, 0, UseEncryption);
+    }
+
+    public void SendRequest(MessageOperationCode code, MessageSubCode subCode, params object[] parameters)
+    {
+        var request = new OperationRequest() { OperationCode = (byte)code, Parameters = new Dictionary<byte, object>() { { (byte)MessageParameterCode.SubCodeParameterCode, subCode } } };
+
+        // Go through all parameters as pairs of 2
+        for(int i = 0; i < parameters.Length; i+=2)
+        {
+            // Make sure the first in each pair is a ParameterCode
+            if(!(parameters[i] is MessageParameterCode))
+            {
+                throw new ArgumentException(string.Format("Parameter {0} is not a MessageParameterCode", i));
+            }
+            // Add the pairs
+            request.Parameters.Add((byte)parameters[i], parameters[i + 1]);
+        }
+        // Send the Request
+        SendRequest(request);
     }
 }
